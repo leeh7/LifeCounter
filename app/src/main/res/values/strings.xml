@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Life Counter</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_2">Hello Android World!</string>
+    <string name="action_settings">Life Counter</string>
+    <string name="title_counter_settings">Life Counter</string>
+</resources>
