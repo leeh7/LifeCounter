@@ -1,4 +1,4 @@
-package com.example.leedavid.firsttest2;
+package me.davidlee.lifecounter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

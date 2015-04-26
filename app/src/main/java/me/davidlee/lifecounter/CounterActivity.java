@@ -1,4 +1,4 @@
-package com.example.leedavid.firsttest2;
+package me.davidlee.lifecounter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 
 /**
  * Created by leeh7 on 4/25/2015.
