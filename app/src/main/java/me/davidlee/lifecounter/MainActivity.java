@@ -18,14 +18,14 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // tells android what activity layout to use
-        Button starting= (Button) findViewById(R.id.button);
+        Button starting= (Button) findViewById(R.id.button); //findviewbyid gets object by id value from xml id value
         final EditText playerCount= (EditText)findViewById(R.id.editPlayerCount);
         final EditText lifeCount= (EditText)findViewById(R.id.lifeCount);
         starting.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View v) { // sets onclick listen, what happens when u click button
                 // Perform action on click
-                Intent myIntent = new Intent(getApplicationContext(),SettingsActivity.class);
-                myIntent.putExtra("Number of Players", Integer.parseInt(playerCount.getText().toString()));
+                Intent myIntent = new Intent(getApplicationContext(),SettingsActivity.class); //generates new intent object
+                myIntent.putExtra("Number of Players", Integer.parseInt(playerCount.getText().toString())); // allows storing of extra data to an intent
                 Intent intent= myIntent.putExtra("Life Points", Integer.parseInt(lifeCount.getText().toString()));
                 startActivity(myIntent);
             }

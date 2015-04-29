@@ -23,7 +23,7 @@ public class CounterActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
-
+        // declare all the views and objects/buttons
         int lifeTotal= getIntent().getExtras().getInt("Starting Life Count");
         String[] playerList = getIntent().getExtras().getStringArray("List of Players");
         Button minusOne= (Button)findViewById(R.id.minusOne);
@@ -31,16 +31,16 @@ public class CounterActivity extends ActionBarActivity {
         final Spinner list= (Spinner)findViewById(R.id.spinner);
         final TextView lifeCount=(TextView)findViewById(R.id.life);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, playerList);
+                this, android.R.layout.simple_spinner_item, playerList); //array adapter specifies to spinner its appearance, uses android.r.layout from settingsactivity
 
-        lifeVals= new int [playerList.length];
+        lifeVals= new int [playerList.length]; //sets lifevalues for each player
         for(int x=0;x<playerList.length;x++){
             lifeVals[x]=lifeTotal;
         }
         lifeCount.setText(""+lifeTotal);
 
-        list.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
+        list.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //listener for every time changing of spinner option, selected item shows its value
+            @Override // use designated method in class instead of method in superclass
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 lifeCount.setText(""+lifeVals[i]); //DAT CHEAP THING
             }
@@ -53,7 +53,7 @@ public class CounterActivity extends ActionBarActivity {
 
         minusOne.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // sets onclick listener for -1 button
                 int lifeNum= list.getSelectedItemPosition();
                 if(lifeVals[lifeNum]>0)
                     lifeVals[lifeNum]--;
@@ -63,7 +63,7 @@ public class CounterActivity extends ActionBarActivity {
 
         minusFive.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {// same thing as above thing
                 int lifeNum=list.getSelectedItemPosition();
                 if(lifeVals[lifeNum]>=5)
                     lifeVals[lifeNum]-=5;
@@ -72,7 +72,7 @@ public class CounterActivity extends ActionBarActivity {
         });
 
 
-        list.setAdapter(spinnerArrayAdapter);
+        list.setAdapter(spinnerArrayAdapter);// set array adapter to spinner, gives to spinner
 
     }
     public boolean onCreateOptionsMenu(Menu menu) {

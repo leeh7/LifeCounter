@@ -38,30 +38,31 @@ public class SettingsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        final int playerSize=getIntent().getExtras().getInt("Number of Players");
+        final int playerSize=getIntent().getExtras().getInt("Number of Players"); // gets data stored from intent that started activity
+        //final because fixed value
 
-        LinearLayout layout= (LinearLayout)findViewById(R.id.playerList);
+        LinearLayout layout= (LinearLayout)findViewById(R.id.playerList); //layout scheme for fixed
 
-        nameList=new EditText[playerSize];
+        nameList=new EditText[playerSize]; //store array of usernames
 
-        LayoutInflater inflater= getLayoutInflater();
+        LayoutInflater inflater= getLayoutInflater(); //inflate transforms xml code to java object
 
-        for(int x=0;x<playerSize;x++){
-           View v= inflater.inflate(R.layout.player_layout,null);
-           TextView entry= (TextView)v.findViewById(R.id.playerDescription);
-           entry.setText("Player "+ (x+1));
-           nameList[x]= (EditText)v.findViewById(R.id.customName);
-           layout.addView(v);
+        for(int x=0;x<playerSize;x++){// displays each textbox for player name entry
+           View v= inflater.inflate(R.layout.player_layout,null); // method to transform xml layout to java, return view object
+           TextView entry= (TextView)v.findViewById(R.id.playerDescription); // within view object, textbox for entering name
+           entry.setText("Player "+ (x+1)); // setting label of name entry
+           nameList[x]= (EditText)v.findViewById(R.id.customName); //adding userinput text box to array
+           layout.addView(v); // adds view object to layout, the one with all the userinput text boxes
         }
 
 
-        Button onward= new Button(this);
+        Button onward= new Button(this); //refers to itself/ current activity
         onward.setText("Start!");
-        layout.addView(onward);
+        layout.addView(onward); //adds button to layout
 
         onward.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //sets click listener, gets usernames then goes to counteractivity to run spinner
                 Intent second=new Intent(getApplicationContext(),CounterActivity.class);
                 String[] finalList=new String[playerSize];
                 for(int y=0;y<playerSize;y++){
